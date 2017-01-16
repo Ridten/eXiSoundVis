@@ -37,16 +37,25 @@ protected:
 	// Some Compressed Audio Information
 	ICompressedAudioInfo* AudioInfo;
 
+	// Buffer that holds the decompressed data
+	uint8* PCMBuffer;
+
+	// Time Variables
+	float CurrentTime;
+	float DecompressDuration;
+
 	/// FUNCTIONS ///
 
 public:
 
 	// Constructor for my De-Compressor
 	FAudioDecompressWorker(class USoundWave* InSoundWaveRef);
+	FAudioDecompressWorker(class USoundWave* InSoundWaveRef, uint8* OutPCMBuffer, float StartTime, float Duration);
 	~FAudioDecompressWorker();
 
 	// Custom Init function
 	static FAudioDecompressWorker* InitializeWorker(class USoundWave* InSoundWaveRef);
+	static FAudioDecompressWorker* InitializeWorker(class USoundWave* InSoundWaveRef, uint8* OutPCMBuffer, float StartTime, float Duration);
 
 	// Custom Shutdown function
 	static void ShutdownWorker();
