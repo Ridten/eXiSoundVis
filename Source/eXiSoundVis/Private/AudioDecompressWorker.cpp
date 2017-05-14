@@ -62,7 +62,7 @@ FAudioDecompressWorker* FAudioDecompressWorker::InitializeWorker(class USoundWav
 	return Runnable;
 }
 
-FAudioDecompressWorker* FAudioDecompressWorker::Initialize(class USoundWave* InSoundWaveRef, uint8* PCMBuffer, float StartTime, float Duration)
+FAudioDecompressWorker* FAudioDecompressWorker::InitializeWorker(class USoundWave* InSoundWaveRef, uint8* PCMBuffer, float StartTime, float Duration)
 {
 	Runnable = new FAudioDecompressWorker(InSoundWaveRef, PCMBuffer, StartTime, Duration);
 
@@ -118,7 +118,7 @@ uint32 FAudioDecompressWorker::Run()
 			}
 
 			bool partialDecompress = false;
-			const uint32 PCMBufferSize = 0;
+			uint32 PCMBufferSize = 0;
 			if (DecompressDuration != 0)
 				partialDecompress = true;
 
@@ -135,7 +135,7 @@ uint32 FAudioDecompressWorker::Run()
 				AudioInfo->SeekToTime(0.0f);
 
 			if (partialDecompress)
-				AudioInfo->ReadCompressedData(PCMOutBuffer, false, PCMBufferSize * 2);
+				AudioInfo->ReadCompressedData(PCMBuffer, false, PCMBufferSize * 2);
 			else	
 				AudioInfo->ReadCompressedData(SoundWaveRef->CachedRealtimeFirstBuffer, false, PCMBufferSize * 2);
 		}
