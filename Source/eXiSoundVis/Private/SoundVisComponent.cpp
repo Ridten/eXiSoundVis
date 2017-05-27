@@ -1,13 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
-#include "eXiSoundVisPrivatePCH.h"
-
 #include "SoundVisComponent.h"
 
 #include "Sound/SoundWave.h"
 #include "AudioDevice.h"
 #include "Runtime/Engine/Public/VorbisAudioInfo.h"
 #include "Developer/TargetPlatform/Public/Interfaces/IAudioFormat.h"
+#include "eXiSoundVisPrivatePCH.h"
 
 /// De-/Constructors
 

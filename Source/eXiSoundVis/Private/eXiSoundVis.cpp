@@ -1,3 +1,4 @@
+#include "eXiSoundVis.h"
 #include "eXiSoundVisPrivatePCH.h"
  
 // Log Category

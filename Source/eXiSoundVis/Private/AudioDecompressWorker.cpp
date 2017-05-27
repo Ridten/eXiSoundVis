@@ -1,12 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
-#include "eXiSoundVisPrivatePCH.h"
-
 #include "AudioDecompressWorker.h"
 #include "SoundVisComponent.h"
 
 #include "AudioDevice.h"
 #include "Developer/TargetPlatform/Public/Interfaces/IAudioFormat.h"
+
+#include "eXiSoundVisPrivatePCH.h"
 
 FAudioDecompressWorker* FAudioDecompressWorker::Runnable = NULL;
 int32 FAudioDecompressWorker::ThreadCounter = 0;
